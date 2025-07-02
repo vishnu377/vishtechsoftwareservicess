@@ -1,0 +1,40 @@
+
+@media (max-width: 768px) {
+    .vs-hero-content{
+        width: 100%;
+    }
+}
+
+
+
+@media (max-width: 575px) {
+
+
+    .vs-why-choose-img{
+        height: 250px;
+    width: 90%;
+    }
+    .vs-why-choose-img::after{
+        bottom: -55px;
+        right: -45px;
+        height: 45%;
+    }
+    
+    .vs-projects-head{
+        width: 100%;
+    }
+
+
+    .vs-contact-info, .vs-contact-form{
+        padding: 10px;
+    }
+    .vs-contact-info h4{
+        font-size: 24px;
+    }
+    .vs-footer-links{
+        padding-left: 20px;
+    }
+    .vs-copy-right-text p{
+        text-align: center;
+    }
+}
