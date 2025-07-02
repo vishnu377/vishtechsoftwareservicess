@@ -7,15 +7,15 @@ body{
     font-family: vs-font;
     src: url("./download-font/Jost/static/Jost-Regular.ttf");
 }
-
+    .mbalignheader{
+      display: none;
+    }
+.vs-about-us-section,
+.vs-projects-section,
+.vs-contact-section{
+  scroll-margin-top: 15vh;
+}
 /* animation css starts here  */
-.vs-services-section canvas{
-    height: 200px !important;
-    width: 100% !important;
-}
-canvas[attributes-style]{
-    aspect-ratio: 1897 / 1006 !important;
-}
 .lines {
     position: absolute;
     top: 0;
@@ -175,6 +175,12 @@ header{
     width: 100%;
     z-index: 9;
 }
+.navbar-toggler{
+  border: none !important;
+}
+.navbar-toggler:focus{
+  box-shadow: none !important;
+}
 .vs-brand-name{
     height: auto;
     width: 150px;
@@ -184,6 +190,9 @@ header{
 }
 .nav-link{
     padding: 10px 20px !important;
+}
+.vs-header-bttn{
+  margin-top: 10px;
 }
 .vs-get-in-touch{
     text-decoration: none;
@@ -213,7 +222,7 @@ header{
 }
 
 .vs-hero-section{
-    background: url('/vishetch/images/home-images/hero-image.png');
+    background: url('/images/home-images/hero-image.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -445,10 +454,6 @@ header{
     color: #143D60;
     margin: 0;
 }
-
-
-
-
 .vs-services-head::after{
     content: '';
     position: absolute;
@@ -484,6 +489,11 @@ header{
     border-radius: 20px;
     box-shadow: 0px 8px 0px #143D60;
     background: #F1F3F5;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+}
+.vs-services-box:hover{
+     transform: scale(1.03);
 }
 .vs-services-img{
     height: 200px;
@@ -858,16 +868,18 @@ footer{
 }
 .vs-footer-links ul li a{
     text-decoration: none;
+    display: block;
     color: #ffffffd7;
     font-size: 14px;
-    
+    transition: all 0.5s ease-in-out;
 }
 .vs-footer-links ul li a i{
     font-size: 12px;
 }
-
-
-
+.vs-footer-links ul li a:hover{
+  color: #A0C878;
+     letter-spacing: 1.3px;
+}
 .vs-copy-right-text{
     border-top: 1px solid #a0c87899;
 }
@@ -891,55 +903,3 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ...existing styles... */
-
-.testimonials, .latest-blogs, .tech-expertise {
-  padding: 4rem 2rem;
-  background: #ffffff;
-  text-align: center;
-}
-.testimonial-grid, .blog-grid, .tech-logos {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-.testimonial-card, .blog-card {
-  background: #f7f9fc;
-  padding: 1.5rem;
-  border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-.testimonial-card h4, .blog-card h4 {
-  color: #004aad;
-  margin-top: 1rem;
-}
-.blog-card img {
-  width: 100%;
-  border-radius: 8px;
-}
-.tech-logos img {
-  height: 50px;
-  margin: 0 10px;
-  transition: transform 0.3s;
-}
-.tech-logos img:hover {
-  transform: scale(1.1);
-}
