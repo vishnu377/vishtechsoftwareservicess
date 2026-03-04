@@ -1,47 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Vishtech Software Services</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/aboutus.css">
-    <link rel="stylesheet" href="css/bootstrap-5.3.3-dist/">
-    <link rel="stylesheet" href="js/main.js">
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Vishtech Software Services — Jaipur-based IT agency with 4+ years experience, 50+ projects, and 100% client satisfaction.">
+<title>About Us | Vishtech Software Services – Jaipur</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.about-grid { display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center; }
+.about-img-box { background:var(--grad2);border-radius:var(--radius-lg);padding:48px;text-align:center;position:relative;overflow:hidden; }
+.about-img-box::before { content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px; }
+.about-emoji { font-size:6rem;position:relative;z-index:2; }
+.about-badges { display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px;position:relative;z-index:2; }
+.ab { background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:var(--white);padding:8px 16px;border-radius:50px;font-size:.78rem;font-weight:600; }
+
+.team-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px; }
+.team-card { background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all .3s; }
+.team-card:hover { box-shadow:var(--shadow);transform:translateY(-4px); }
+.team-avatar { width:70px;height:70px;border-radius:50%;background:var(--grad1);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin:0 auto 14px; }
+.team-card h4 { font-size:1rem;color:var(--navy);margin-bottom:4px; }
+.team-card .role { font-size:.8rem;color:var(--muted); }
+.team-card .skills-row { display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:10px; }
+
+.timeline { position:relative;padding-left:32px; }
+.timeline::before { content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border); }
+.tl-item { position:relative;margin-bottom:32px; }
+.tl-dot { position:absolute;left:-27px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--white);box-shadow:0 0 0 2px var(--blue); }
+.tl-item h4 { font-size:.95rem;color:var(--navy);margin-bottom:4px; }
+.tl-item p { font-size:.85rem;color:var(--muted);line-height:1.6; }
+.tl-year { font-size:.72rem;color:var(--blue);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px; }
+
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-             
- 
-    <main>
-        
-        <div class="page-header">
-            <div class="container">
-                <h1>About Our Company</h1>
-                <p>Learn more about our journey, mission, and the team behind our success.</p>
-            </div>
+<div class="page-hero">
+  <div class="container">
+    <div class="section-label"><i class="fas fa-users"></i> Our Story</div>
+    <h1>About <span style="color:var(--cyan-light)">Vishtech</span></h1>
+    <p>A passionate team of developers, designers, and marketers from Jaipur — helping businesses grow online.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>About</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-box reveal">
+        <div class="about-emoji">🏢</div>
+        <div class="about-badges">
+          <span class="ab">📍 Jaipur, Rajasthan</span>
+          <span class="ab">📅 Est. 2021</span>
+          <span class="ab">🏆 50+ Projects</span>
+          <span class="ab">⭐ 5.0 Google Rating</span>
         </div>
+      </div>
+      <div class="reveal">
+        <div class="section-label"><i class="fas fa-info-circle"></i> Who We Are</div>
+        <h2 class="section-title">Jaipur's <span>Trusted IT Partner</span></h2>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;">Vishtech Software Services was founded in 2021 with a simple mission — to help small and medium businesses in India build a strong, professional digital presence at an honest price.</p>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;">Based in Khatipura, Jaipur, our team of 8+ developers, designers, and digital marketers has delivered 50+ projects across web, mobile apps, e-commerce, and digital marketing campaigns.</p>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:28px;">We believe in transparency, fast delivery, and building long-term relationships with our clients. That's why 70% of our business comes from referrals.</p>
+        <div class="trust-row" style="margin-bottom:24px;">
+          <div class="trust-chip green"><i class="fas fa-check-circle"></i> GST Registered</div>
+          <div class="trust-chip"><i class="fas fa-file-contract"></i> NDA on Request</div>
+          <div class="trust-chip star"><i class="fas fa-star"></i> IndiaMart Verified</div>
+        </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone"></i> Talk to Us Today</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section id="about-details">
-            <div class="container">
-                <div class="about-content">
-                    <div>
-                        <h3>Who We Are</h3>
-                        <p>Vishtech Software Services is a leading IT solutions provider dedicated to helping businesses innovate and grow. Founded in [Year], our mission has always been to deliver top-notch technology solutions that drive real results.</p>
-                        <p>We believe in building long-term partnerships with our clients, grounded in trust, transparency, and a shared passion for excellence.</p>
-                    </div>
-                    <div>
-                        <img src="images/about-us.jpg" alt="Our Team">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Same Footer as index.html -->
-    <footer id="main-footer"></footer> 
+<!-- Stats -->
+<section class="section section-alt">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;">
+      <div style="text-align:center;padding:28px;" class="reveal">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--blue);">50+</div>
+        <div style="color:var(--muted);font-size:.88rem;margin-top:4px;">Projects Completed</div>
+      </div>
+      <div style="text-align:center;padding:28px;" class="reveal">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--blue);">100%</div>
+        <div style="color:var(--muted);font-size:.88rem;margin-top:4px;">Client Satisfaction</div>
+      </div>
+      <div style="text-align:center;padding:28px;" class="reveal">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--blue);">8+</div>
+        <div style="color:var(--muted);font-size:.88rem;margin-top:4px;">Team Members</div>
+      </div>
+      <div style="text-align:center;padding:28px;" class="reveal">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--blue);">4+</div>
+        <div style="color:var(--muted);font-size:.88rem;margin-top:4px;">Years Experience</div>
+      </div>
+      <div style="text-align:center;padding:28px;" class="reveal">
+        <div style="font-family:'Rajdhani',sans-serif;font-size:3rem;font-weight:700;color:var(--blue);">5.0★</div>
+        <div style="color:var(--muted);font-size:.88rem;margin-top:4px;">Google Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="js/main.js"></script>
+<!-- Team -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label"><i class="fas fa-users"></i> Our Team</div>
+      <h2 class="section-title">Meet the <span>Team</span></h2>
+      <p class="section-subtitle reveal">A dedicated team of passionate professionals committed to your digital success.</p>
+    </div>
+    <br><br>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">VK</div>
+        <h4>Vishal Kumar</h4>
+        <div class="role">Founder & Lead Developer</div>
+        <div class="skills-row"><span class="tag" style="font-size:.68rem;">React</span><span class="tag" style="font-size:.68rem;">Node.js</span><span class="tag" style="font-size:.68rem;">Laravel</span></div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">RS</div>
+        <h4>Rahul Sharma</h4>
+        <div class="role">Mobile App Developer</div>
+        <div class="skills-row"><span class="tag" style="font-size:.68rem;">React Native</span><span class="tag" style="font-size:.68rem;">Flutter</span></div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#059669,#10b981)">PG</div>
+        <h4>Priya Gupta</h4>
+        <div class="role">UI/UX Designer</div>
+        <div class="skills-row"><span class="tag" style="font-size:.68rem;">Figma</span><span class="tag" style="font-size:.68rem;">Adobe XD</span></div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#dc2626,#ef4444)">AM</div>
+        <h4>Amit Meena</h4>
+        <div class="role">SEO & Digital Marketing</div>
+        <div class="skills-row"><span class="tag" style="font-size:.68rem;">SEO</span><span class="tag" style="font-size:.68rem;">Google Ads</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Journey timeline -->
+<section class="section section-alt">
+  <div class="container" style="max-width:700px;">
+    <div class="text-center">
+      <div class="section-label"><i class="fas fa-history"></i> Our Journey</div>
+      <h2 class="section-title">How We <span>Got Here</span></h2>
+    </div>
+    <br><br>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021 — Founded</div>
+        <h4>Vishtech Started in Jaipur</h4>
+        <p>Founded by Vishal Kumar with a team of 3, starting with freelance web development projects for local businesses in Jaipur.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2022 — Expansion</div>
+        <h4>Mobile App Division Launched</h4>
+        <p>Added mobile app development to our services. Built our first Android job portal app, attracting clients from multiple cities.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023 — Milestone</div>
+        <h4>25+ Projects & SEO Services</h4>
+        <p>Reached 25 completed projects. Launched our SEO and digital marketing division. Listed on IndiaMart as a verified supplier.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024 — Growth</div>
+        <h4>50+ Projects & Growing</h4>
+        <p>Crossed 50 projects. Team expanded to 8+ members. 5.0 star Google rating. Clients from Jaipur, Delhi, Mumbai & beyond.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025 — Present</div>
+        <h4>Your Trusted Digital Partner</h4>
+        <p>Continuing to grow with a focus on quality, transparency, and real results for every client we work with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title">Want to Work <span>With Us?</span></h2>
+    <p class="section-subtitle" style="margin:0 auto 28px;">Join 50+ businesses who trust Vishtech for their digital growth.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Start Your Project</a>
+  </div>
+</section>
+
+<script src="js/components.js"></script>
 </body>
 </html>

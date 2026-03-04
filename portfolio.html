@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vishtech Software Services portfolio — see our completed web, app and e-commerce projects for clients across India.">
+<title>Portfolio | Vishtech Software Services – Jaipur</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.portfolio-full-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; }
+.portfolio-full-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:all .3s; }
+.portfolio-full-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.pf-thumb { height:220px; display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden; }
+.pf-overlay { position:absolute;inset:0;background:var(--grad1);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;gap:10px;color:var(--white); }
+.portfolio-full-card:hover .pf-overlay { opacity:.94; }
+.pf-overlay .pf-links { display:flex;gap:10px; }
+.pf-overlay .pf-link { padding:8px 18px;border-radius:50px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:var(--white);font-size:.8rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px; }
+.pf-body { padding:22px; }
+.pf-body h3 { font-size:1.05rem;color:var(--navy);margin-bottom:6px; }
+.pf-body p { font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:14px; }
+.pf-meta { display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:12px;margin-top:12px; }
+.pf-meta span { display:flex;align-items:center;gap:5px; }
+
+.result-chip { display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#16a34a;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:700; }
+.result-chip.blue { background:#dbeafe;color:var(--blue); }
+.result-chip.orange { background:#fef3c7;color:#d97706; }
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="section-label"><i class="fas fa-briefcase"></i> Our Work</div>
+    <h1>Projects We're <span style="color:var(--cyan-light)">Proud Of</span></h1>
+    <p>50+ completed projects across web, mobile apps, e-commerce and digital marketing.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Portfolio</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:32px;">
+      <div class="filter-row" style="margin:0;">
+        <button class="filter-btn active" onclick="filterPortfolio('all',this)">All Projects</button>
+        <button class="filter-btn" onclick="filterPortfolio('web',this)">Websites</button>
+        <button class="filter-btn" onclick="filterPortfolio('app',this)">Mobile Apps</button>
+        <button class="filter-btn" onclick="filterPortfolio('ecom',this)">E-Commerce</button>
+        <button class="filter-btn" onclick="filterPortfolio('seo',this)">SEO / Marketing</button>
+      </div>
+      <div style="font-size:.82rem;color:var(--muted);">Showing <strong>9</strong> projects</div>
+    </div>
+
+    <div class="portfolio-full-grid" id="portGrid">
+
+      <div class="portfolio-full-card reveal" data-cat="web">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#0b1a3b,#1565c0)">
+          <span>🌲</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>Forest Consultancy — Corporate Website</h3>
+          <p>Complete corporate website with lead forms, blog, team page and full Google SEO optimization. Delivered in 12 days.</p>
+          <div class="portfolio-tags"><span class="ptag">WordPress</span><span class="ptag">SEO</span><span class="ptag">Lead Gen</span><span class="ptag">Blog</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">📈 3x More Leads</span>
+            <span class="result-chip blue">🏆 Page 1 Google</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> 12 Days</span><span><i class="fas fa-rupee-sign"></i> ₹18,500</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="app">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#0f3460,#533483)">
+          <span>💼</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fab fa-google-play"></i> Play Store</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>FPS Jobs — Job Portal App</h3>
+          <p>Android & iOS job portal with employer dashboard, candidate profiles, job alerts, and payment gateway. 1000+ users in first month.</p>
+          <div class="portfolio-tags"><span class="ptag">React Native</span><span class="ptag">Node.js</span><span class="ptag">Firebase</span><span class="ptag">Razorpay</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">👥 1000+ Users</span>
+            <span class="result-chip blue">⭐ 4.8 Play Store</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> 45 Days</span><span><i class="fas fa-rupee-sign"></i> ₹45,000</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="ecom">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#1b4332,#2d6a4f)">
+          <span>🌿</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>Life Group — E-Commerce Store</h3>
+          <p>Full-featured WooCommerce store with Razorpay payment gateway, inventory management, and WhatsApp order notifications.</p>
+          <div class="portfolio-tags"><span class="ptag">WooCommerce</span><span class="ptag">Razorpay</span><span class="ptag">WhatsApp API</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">🛒 200+ Orders/mo</span>
+            <span class="result-chip orange">💰 4x ROI on Ads</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> 21 Days</span><span><i class="fas fa-rupee-sign"></i> ₹22,000</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="web">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#4a0080,#8b00d4)">
+          <span>💐</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>Lily Boutique — Fashion Website</h3>
+          <p>Elegant branding + e-commerce website for luxury fashion brand with Instagram feed integration and lookbook gallery.</p>
+          <div class="portfolio-tags"><span class="ptag">Custom HTML/CSS</span><span class="ptag">JavaScript</span><span class="ptag">Instagram API</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">📸 2x Instagram Traffic</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2023</span><span><i class="fas fa-clock"></i> 14 Days</span><span><i class="fas fa-rupee-sign"></i> ₹14,000</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="seo">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#7f1d1d,#991b1b)">
+          <span>⚖️</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>Tiwana Law — Legal + SEO</h3>
+          <p>Law firm website with appointment booking + 6-month SEO campaign. Ranked #1 for 'law firm Jaipur' within 4 months.</p>
+          <div class="portfolio-tags"><span class="ptag">WordPress</span><span class="ptag">Booking System</span><span class="ptag">SEO</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip blue">🏆 #1 on Google</span>
+            <span class="result-chip">📞 2x Phone Calls</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> SEO: 4 Months</span><span><i class="fas fa-rupee-sign"></i> ₹36,000</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="ecom">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#1e3a5f,#2196f3)">
+          <span>🛒</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>Amsons Mart — Retail Marketplace</h3>
+          <p>Multi-vendor retail marketplace with delivery tracking, vendor dashboard, admin panel and automated invoice generation.</p>
+          <div class="portfolio-tags"><span class="ptag">Laravel</span><span class="ptag">MySQL</span><span class="ptag">Custom PHP</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">📦 500+ Orders/day</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> 60 Days</span><span><i class="fas fa-rupee-sign"></i> ₹65,000</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="seo">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#064e3b,#059669)">
+          <span>🏠</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>Rajasthan Realty — Google Ads</h3>
+          <p>Google Ads campaign for real estate agency. Managed ₹30,000/month budget and generated 80+ qualified leads in 30 days.</p>
+          <div class="portfolio-tags"><span class="ptag">Google Ads</span><span class="ptag">Landing Page</span><span class="ptag">CRM Integration</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip orange">💰 5x ROAS</span>
+            <span class="result-chip">📊 80+ Leads/mo</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> Ongoing</span><span><i class="fas fa-rupee-sign"></i> ₹15,000/mo</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="app">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#0c4a6e,#0369a1)">
+          <span>📚</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fab fa-google-play"></i> Play Store</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>EduSphere — E-Learning App</h3>
+          <p>Education platform with video courses, quizzes, certificates and student analytics dashboard for coaching institute.</p>
+          <div class="portfolio-tags"><span class="ptag">Flutter</span><span class="ptag">Django</span><span class="ptag">AWS S3</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">🎓 2000+ Students</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2023</span><span><i class="fas fa-clock"></i> 55 Days</span><span><i class="fas fa-rupee-sign"></i> ₹55,000</span></div>
+        </div>
+      </div>
+
+      <div class="portfolio-full-card reveal" data-cat="web">
+        <div class="pf-thumb" style="background:linear-gradient(135deg,#312e81,#4f46e5)">
+          <span>🏥</span>
+          <div class="pf-overlay">
+            <div class="pf-links">
+              <a href="#" class="pf-link"><i class="fas fa-eye"></i> Preview</a>
+              <a href="contact.html" class="pf-link"><i class="fas fa-comments"></i> Discuss</a>
+            </div>
+          </div>
+        </div>
+        <div class="pf-body">
+          <h3>HealthCare Plus — Doctor Website</h3>
+          <p>Multi-doctor clinic website with online appointment booking, doctor profiles, and WhatsApp reminder integration.</p>
+          <div class="portfolio-tags"><span class="ptag">WordPress</span><span class="ptag">Booking Plugin</span><span class="ptag">WhatsApp API</span></div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="result-chip">📅 150+ Bookings/mo</span>
+          </div>
+          <div class="pf-meta"><span><i class="fas fa-calendar"></i> 2024</span><span><i class="fas fa-clock"></i> 18 Days</span><span><i class="fas fa-rupee-sign"></i> ₹20,000</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center;margin-top:52px;" class="reveal">
+      <p style="color:var(--muted);margin-bottom:16px;">Want a project like these for your business?</p>
+      <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Start Your Project</a>
+    </div>
+  </div>
+</section>
+
+<script src="js/components.js"></script>
+</body>
+</html>

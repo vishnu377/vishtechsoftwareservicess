@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vishtech blog — tips on web development, SEO, mobile apps and digital marketing for businesses in Jaipur and across India.">
+<title>Blog & Resources | Vishtech Software Services</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.blog-layout { display:grid; grid-template-columns:1fr 320px; gap:40px; align-items:start; }
+.blog-main-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; }
+
+/* Featured post */
+.blog-featured { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; margin-bottom:32px; display:grid; grid-template-columns:1fr 1fr; }
+.blog-featured .feat-thumb { background:linear-gradient(135deg,#1565c0,#00b4d8); min-height:280px; display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden; }
+.blog-featured .feat-body { padding:32px; display:flex;flex-direction:column;justify-content:center; }
+.feat-body .blog-cat-badge { position:static; display:inline-block; margin-bottom:14px; }
+.feat-body h2 { font-size:1.4rem;color:var(--navy);margin-bottom:12px;line-height:1.35; }
+.feat-body p { font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:18px; }
+
+/* Sidebar */
+.sidebar { position:sticky; top:100px; }
+.sidebar-widget { background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:20px; }
+.sidebar-widget h4 { font-size:1rem;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border); }
+.recent-post { display:flex;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border); }
+.recent-post:last-child { border-bottom:none;margin-bottom:0;padding-bottom:0; }
+.rp-icon { width:44px;height:44px;border-radius:8px;background:var(--section-bg);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0; }
+.rp-body { }
+.rp-body h5 { font-size:.82rem;color:var(--navy);line-height:1.4;margin-bottom:3px; }
+.rp-body span { font-size:.72rem;color:var(--muted); }
+.cat-pill { display:inline-block;padding:5px 14px;border-radius:50px;background:var(--section-bg);border:1px solid var(--border);font-size:.78rem;font-weight:600;color:var(--text);margin:4px;cursor:pointer;transition:all .2s; }
+.cat-pill:hover { background:var(--blue);color:var(--white);border-color:var(--blue); }
+.newsletter-form { display:flex;flex-direction:column;gap:10px; }
+.newsletter-form input { background:var(--section-bg);border:1.5px solid var(--border);padding:10px 14px;border-radius:8px;font-family:inherit;font-size:.85rem;outline:none; }
+.newsletter-form button { background:var(--grad1);color:var(--white);border:none;padding:10px;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;font-family:inherit; }
+
+/* Full article overlay */
+.article-modal { display:none; position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:20px; }
+.article-modal.open { display:flex; }
+.article-content { background:var(--white);border-radius:var(--radius-lg);max-width:720px;width:100%;max-height:90vh;overflow-y:auto;padding:40px; }
+.article-content h2 { font-size:1.6rem;color:var(--navy);margin-bottom:8px; }
+.article-content .meta { color:var(--muted);font-size:.82rem;margin-bottom:20px; }
+.article-content p { color:var(--text);line-height:1.8;margin-bottom:16px;font-size:.92rem; }
+.article-content h3 { font-size:1.1rem;color:var(--navy);margin:20px 0 8px; }
+.article-content ul { margin-left:20px;color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:16px; }
+.close-btn { position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:var(--section-bg);border:none;font-size:1rem;cursor:pointer; }
+.modal-inner { position:relative; }
+
+@media(max-width:900px) { .blog-layout { grid-template-columns:1fr; } .blog-featured { grid-template-columns:1fr; } .blog-featured .feat-thumb { min-height:180px; } }
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="section-label"><i class="fas fa-blog"></i> Insights & Tips</div>
+    <h1>Blog & <span style="color:var(--cyan-light)">Resources</span></h1>
+    <p>Practical guides on web development, SEO, mobile apps & digital marketing for Indian businesses.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Blog</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filter tabs -->
+    <div class="filter-row" style="margin-bottom:28px;">
+      <button class="filter-btn active" onclick="filterBlog('all',this)">All Posts</button>
+      <button class="filter-btn" onclick="filterBlog('seo',this)">SEO</button>
+      <button class="filter-btn" onclick="filterBlog('web',this)">Web Dev</button>
+      <button class="filter-btn" onclick="filterBlog('app',this)">Apps</button>
+      <button class="filter-btn" onclick="filterBlog('marketing',this)">Marketing</button>
+    </div>
+
+    <div class="blog-layout">
+      <div>
+        <!-- Featured -->
+        <div class="blog-featured reveal" data-blog="web">
+          <div class="feat-thumb"><span>🌐</span></div>
+          <div class="feat-body">
+            <span class="blog-cat-badge">Featured · Web Dev</span>
+            <h2>How to Build a Website That Generates 10x More Leads for Your Business</h2>
+            <p>Most business websites look good but generate zero leads. Here's the exact strategy we use to build lead machines for our clients.</p>
+            <div class="blog-meta"><i class="fas fa-calendar"></i> March 3, 2025 <i class="fas fa-clock"></i> 8 min read</div>
+            <a class="read-link" onclick="openArticle('article1')" style="cursor:pointer;">Read Full Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="blog-main-grid">
+          <div class="blog-card reveal" data-blog="seo">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#e8f0fe,#c2d4f8)"><span>📈</span><span class="blog-cat-badge">SEO</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><i class="fas fa-calendar"></i> March 1, 2025 · 5 min</div>
+              <h3>7 SEO Mistakes Jaipur Businesses Make (And How to Fix Them)</h3>
+              <p>Most local businesses are losing Google traffic to these common SEO errors. Here's what to fix first.</p>
+              <a class="read-link" onclick="openArticle('article2')" style="cursor:pointer;">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="blog-card reveal" data-blog="app">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)"><span>📱</span><span class="blog-cat-badge">Apps</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><i class="fas fa-calendar"></i> Feb 18, 2025 · 6 min</div>
+              <h3>React Native vs Flutter 2025: Which to Choose for Your Business App?</h3>
+              <p>No tech jargon — just a clear comparison to help business owners decide what's right for their project.</p>
+              <a class="read-link" onclick="openArticle('article3')" style="cursor:pointer;">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="blog-card reveal" data-blog="marketing">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a)"><span>💰</span><span class="blog-cat-badge">Marketing</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><i class="fas fa-calendar"></i> Feb 5, 2025 · 4 min</div>
+              <h3>How to Get More Leads From Google Ads on a ₹5,000–₹10,000 Budget</h3>
+              <p>Smart targeting strategies that get results even on a small budget. Tested on 20+ Indian businesses.</p>
+              <a class="read-link" onclick="openArticle('article4')" style="cursor:pointer;">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="blog-card reveal" data-blog="web">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0)"><span>🛒</span><span class="blog-cat-badge">Web Dev</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><i class="fas fa-calendar"></i> Jan 28, 2025 · 5 min</div>
+              <h3>WooCommerce vs Shopify in India 2025 — Which is Better for Your Store?</h3>
+              <p>Comparing cost, features, payment gateways, and SEO capability for Indian e-commerce businesses.</p>
+              <a class="read-link" onclick="openArticle('article5')" style="cursor:pointer;">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="blog-card reveal" data-blog="seo">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)"><span>🗺️</span><span class="blog-cat-badge">SEO</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><i class="fas fa-calendar"></i> Jan 15, 2025 · 4 min</div>
+              <h3>How to Rank Your Business on Google Maps in Jaipur — Step by Step</h3>
+              <p>Google Maps ranking guide specifically for Jaipur businesses — local SEO tips that actually work.</p>
+              <a class="read-link" onclick="openArticle('article6')" style="cursor:pointer;">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="blog-card reveal" data-blog="marketing">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)"><span>📊</span><span class="blog-cat-badge">Marketing</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><i class="fas fa-calendar"></i> Jan 8, 2025 · 7 min</div>
+              <h3>IndiaMart vs JustDial vs Website — Which Gives Better Leads in 2025?</h3>
+              <p>We analyzed lead quality and cost across all three platforms for Indian SMEs. The results may surprise you.</p>
+              <a class="read-link" onclick="openArticle('article7')" style="cursor:pointer;">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-widget reveal">
+          <h4>Quick Search</h4>
+          <div style="display:flex;gap:8px;">
+            <input type="text" placeholder="Search articles..." style="flex:1;padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:.85rem;outline:none;">
+            <button style="background:var(--blue);color:var(--white);border:none;padding:9px 14px;border-radius:8px;cursor:pointer;"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <div class="sidebar-widget reveal">
+          <h4>Categories</h4>
+          <div>
+            <span class="cat-pill" onclick="filterBlog('seo',null)">📈 SEO (3)</span>
+            <span class="cat-pill" onclick="filterBlog('web',null)">🌐 Web Dev (2)</span>
+            <span class="cat-pill" onclick="filterBlog('app',null)">📱 Apps (1)</span>
+            <span class="cat-pill" onclick="filterBlog('marketing',null)">💰 Marketing (2)</span>
+          </div>
+        </div>
+        <div class="sidebar-widget reveal">
+          <h4>Recent Posts</h4>
+          <div class="recent-post"><div class="rp-icon">📈</div><div class="rp-body"><h5>7 SEO Mistakes Jaipur Businesses Make</h5><span>March 1, 2025</span></div></div>
+          <div class="recent-post"><div class="rp-icon">📱</div><div class="rp-body"><h5>React Native vs Flutter 2025</h5><span>Feb 18, 2025</span></div></div>
+          <div class="recent-post"><div class="rp-icon">💰</div><div class="rp-body"><h5>Google Ads on ₹5K Budget</h5><span>Feb 5, 2025</span></div></div>
+        </div>
+        <div class="sidebar-widget reveal">
+          <h4>Get Weekly Tips</h4>
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:12px;">Subscribe to our newsletter for free digital marketing tips every week.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="your@email.com">
+            <button onclick="showToast('Subscribed! Check your inbox.','success')"><i class="fas fa-paper-plane"></i> Subscribe Free</button>
+          </div>
+        </div>
+        <div class="sidebar-widget reveal" style="background:var(--grad2);color:var(--white);">
+          <h4 style="color:var(--white);">Need a Website?</h4>
+          <p style="font-size:.84rem;color:rgba(255,255,255,.7);margin-bottom:16px;">Get a free quote for your project. We reply in 2 hours!</p>
+          <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center;font-size:.85rem;">Get Free Quote →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Article Modals -->
+<div class="article-modal" id="article1">
+  <div class="modal-inner">
+    <button class="close-btn" onclick="closeArticle('article1')">✕</button>
+    <div class="article-content">
+      <span class="tag">Web Dev · Featured</span>
+      <h2 style="margin-top:12px;">How to Build a Website That Generates 10x More Leads</h2>
+      <div class="meta"><i class="fas fa-calendar"></i> March 3, 2025 · <i class="fas fa-clock"></i> 8 min read · By Vishtech Team</div>
+      <p>Most business websites look beautiful but generate zero leads. The problem is that they were built to look good — not to convert. After building 50+ websites for Indian businesses, we've identified the exact elements that separate lead machines from digital brochures.</p>
+      <h3>1. A Clear, Compelling Headline</h3>
+      <p>Your homepage headline should answer one question: "What do you do, for whom, and what's the benefit?" Most businesses write generic headlines like "Welcome to Our Website." Instead, try: "We Build Websites That Generate 3x More Leads for Jaipur Businesses."</p>
+      <h3>2. A Visible, Urgent Call-to-Action</h3>
+      <p>Your CTA button must be above the fold, high-contrast, and action-oriented. "Get Free Quote in 24 Hours" converts better than "Contact Us." Add urgency with "Limited slots this month."</p>
+      <h3>3. Social Proof Front and Centre</h3>
+      <p>Place your best Google review, client count, and project count right on the homepage. People buy from businesses they trust. Make it easy to trust you instantly.</p>
+      <h3>4. Fast Loading Speed</h3>
+      <p>Google ranks fast websites higher, and visitors leave slow ones. Aim for under 3 seconds load time. Use compressed images, caching, and a good hosting provider.</p>
+      <h3>5. WhatsApp Integration</h3>
+      <p>Indian users prefer WhatsApp over email forms. Add a floating WhatsApp button that pre-fills a message. This alone can double your conversions.</p>
+      <div style="background:var(--section-bg);border-radius:10px;padding:16px;margin-top:20px;text-align:center;">
+        <p style="font-weight:600;color:var(--navy);">Want us to build your lead-generating website?</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:10px;">Get Free Quote →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-modal" id="article2">
+  <div class="modal-inner">
+    <button class="close-btn" onclick="closeArticle('article2')">✕</button>
+    <div class="article-content">
+      <span class="tag">SEO</span>
+      <h2 style="margin-top:12px;">7 SEO Mistakes Jaipur Businesses Make</h2>
+      <div class="meta"><i class="fas fa-calendar"></i> March 1, 2025 · 5 min read</div>
+      <p>We've audited hundreds of local business websites in Jaipur and found the same SEO mistakes repeatedly. Fixing these can dramatically improve your Google ranking.</p>
+      <h3>Mistake 1: Not Claiming Google Business Profile</h3>
+      <p>Your Google Maps listing is your most powerful free SEO tool. If you haven't claimed and optimized it with photos, hours, and reviews, you're missing out on local searches.</p>
+      <h3>Mistake 2: No Local Keywords</h3>
+      <p>Using "web development" instead of "web development in Jaipur" means you're competing globally instead of locally. Always include your city in your page titles and content.</p>
+      <h3>Mistake 3: Slow Website Speed</h3>
+      <p>Google penalizes slow websites. Use PageSpeed Insights to check your score. Anything below 70 is hurting your rankings.</p>
+      <h3>Mistake 4: No Blog or Fresh Content</h3>
+      <p>Google rewards websites that publish fresh, relevant content. Even 2 blog posts per month can significantly improve your rankings over 6 months.</p>
+      <h3>Mistake 5: No Backlinks</h3>
+      <p>Get listed on IndiaMart, JustDial, Sulekha, and local business directories. These backlinks signal authority to Google.</p>
+      <h3>Mistake 6: Missing Meta Descriptions</h3>
+      <p>Every page needs a unique meta description with your target keyword. This is what appears in Google search results and affects click-through rates.</p>
+      <h3>Mistake 7: Not Getting Google Reviews</h3>
+      <p>Ask every satisfied customer to leave a Google review. Businesses with 10+ reviews rank significantly higher than those with none.</p>
+      <div style="background:var(--section-bg);border-radius:10px;padding:16px;margin-top:20px;text-align:center;">
+        <p style="font-weight:600;color:var(--navy);">Want us to audit and fix your SEO?</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:10px;">Get Free SEO Audit →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modals 3-7 (abbreviated) -->
+<div class="article-modal" id="article3"><div class="modal-inner"><button class="close-btn" onclick="closeArticle('article3')">✕</button><div class="article-content"><span class="tag">Apps</span><h2 style="margin-top:12px;">React Native vs Flutter 2025</h2><div class="meta">Feb 18, 2025 · 6 min read</div><p>Both are excellent choices for cross-platform mobile app development. Here's how to choose based on your project needs.</p><h3>React Native</h3><p>Best if you already have a web team using JavaScript/React. Large community, excellent npm ecosystem, and Meta-backed. Slightly more mature for complex UI. Best for: social apps, marketplaces, content apps.</p><h3>Flutter</h3><p>Google-backed, uses Dart language. Extremely fast rendering, pixel-perfect UI across platforms, excellent for complex animations. Best for: fintech apps, productivity tools, branded apps with custom UI.</p><h3>Our Recommendation</h3><p>For most Indian small-medium business apps — React Native. For apps needing pixel-perfect custom UI and performance — Flutter. Both are excellent and we build in both at Vishtech.</p><div style="background:var(--section-bg);border-radius:10px;padding:16px;margin-top:20px;text-align:center;"><p style="font-weight:600;color:var(--navy);">Need an app? Let's discuss your project.</p><a href="contact.html" class="btn btn-primary" style="margin-top:10px;">Get App Quote →</a></div></div></div></div>
+<div class="article-modal" id="article4"><div class="modal-inner"><button class="close-btn" onclick="closeArticle('article4')">✕</button><div class="article-content"><span class="tag">Marketing</span><h2 style="margin-top:12px;">Google Ads on a Small Budget</h2><div class="meta">Feb 5, 2025 · 4 min read</div><p>You don't need a huge budget to get results from Google Ads. Here's what works for ₹5,000–₹10,000/month campaigns.</p><h3>1. Hyper-Local Targeting</h3><p>Target only your city or specific PIN codes. Don't try to compete nationally. "Website designer Jaipur" at ₹15 CPC vs "website designer India" at ₹80 CPC — same result, 5x cheaper.</p><h3>2. Use Exact Match Keywords</h3><p>Add square brackets around your keywords [website design jaipur]. This prevents your budget from being wasted on irrelevant searches.</p><h3>3. Dedicated Landing Page</h3><p>Send ad traffic to a specific page built for conversions — not your homepage. Include one clear offer, one form, one phone number.</p><h3>4. Call-Only Ads</h3><p>For service businesses, call-only ads work brilliantly. People click and directly call you. No website needed, no form friction.</p><div style="background:var(--section-bg);border-radius:10px;padding:16px;margin-top:20px;text-align:center;"><p style="font-weight:600;color:var(--navy);">Want us to run your Google Ads?</p><a href="contact.html" class="btn btn-primary" style="margin-top:10px;">Start Ads Campaign →</a></div></div></div></div>
+<div class="article-modal" id="article5"><div class="modal-inner"><button class="close-btn" onclick="closeArticle('article5')">✕</button><div class="article-content"><span class="tag">Web Dev</span><h2 style="margin-top:12px;">WooCommerce vs Shopify in India 2025</h2><div class="meta">Jan 28, 2025 · 5 min read</div><p>Both platforms work well, but the right choice depends on your budget, technical comfort, and growth plans.</p><h3>WooCommerce</h3><p>One-time cost, full ownership, better SEO control, works with Indian payment gateways (Razorpay, PayU, CCAvenue) easily. Requires WordPress hosting (₹3,000–₹8,000/year). Best for businesses that want full control and lower ongoing costs.</p><h3>Shopify</h3><p>Monthly subscription (₹2,000–₹5,000/month), easier to use, great apps, but transaction fees apply. Better for businesses that want simplicity over cost savings.</p><h3>Vishtech Recommendation</h3><p>For Indian SMEs starting out — WooCommerce. Lower cost, better local payment gateway support, and no monthly fees. For fashion/lifestyle brands wanting a premium storefront quickly — Shopify.</p><div style="background:var(--section-bg);border-radius:10px;padding:16px;margin-top:20px;text-align:center;"><p style="font-weight:600;color:var(--navy);">Need an e-commerce store?</p><a href="contact.html" class="btn btn-primary" style="margin-top:10px;">Get E-Commerce Quote →</a></div></div></div></div>
+<div class="article-modal" id="article6"><div class="modal-inner"><button class="close-btn" onclick="closeArticle('article6')">✕</button><div class="article-content"><span class="tag">SEO</span><h2 style="margin-top:12px;">Rank on Google Maps in Jaipur</h2><div class="meta">Jan 15, 2025 · 4 min read</div><p>Google Maps (Google Business Profile) is the most valuable free marketing tool for local businesses. Here's how to rank higher.</p><h3>Step 1: Claim & Verify Your Listing</h3><p>Go to business.google.com, claim your business, and complete the verification process (usually by postcard or phone).</p><h3>Step 2: Complete Every Field</h3><p>Add business hours, website, phone, 10+ photos, services offered, and a detailed description with local keywords like "in Jaipur."</p><h3>Step 3: Get Reviews Actively</h3><p>After every project/service, send the client your Google Review link via WhatsApp. Aim for 10+ reviews in the first 3 months.</p><h3>Step 4: Post Regularly</h3><p>Google Business Posts appear in your Maps listing. Post offers, project updates, or tips weekly. This signals to Google that you're active.</p><h3>Step 5: Build Local Citations</h3><p>Get listed on IndiaMart, JustDial, Sulekha, and local Jaipur directories with your exact business name, address, and phone number.</p></div></div></div>
+<div class="article-modal" id="article7"><div class="modal-inner"><button class="close-btn" onclick="closeArticle('article7')">✕</button><div class="article-content"><span class="tag">Marketing</span><h2 style="margin-top:12px;">IndiaMart vs JustDial vs Website — Which Gives Better Leads?</h2><div class="meta">Jan 8, 2025 · 7 min read</div><p>We analyzed lead data from 30+ of our clients across all three platforms over 12 months. Here's what the data shows.</p><h3>IndiaMart</h3><p>Best for B2B products and manufacturing. High-intent buyers. Average lead cost ₹200–₹800. Requires subscription (₹15,000–₹60,000/year). Lead quality: HIGH.</p><h3>JustDial</h3><p>Good for local services (plumbers, electricians, etc.). Lower lead quality, many enquiries from price-shoppers. Lead cost ₹50–₹200. Lead quality: MEDIUM.</p><h3>Your Own Website + SEO</h3><p>Highest quality leads — people specifically searched for you. One-time investment + monthly SEO. Leads cost ₹100–₹500 long-term. Lead quality: VERY HIGH.</p><h3>Our Recommendation</h3><p>Combine all three in early stage. Once your website ranks on Google, reduce IndiaMart/JustDial dependency. Own your lead generation — don't rely on platforms forever.</p><div style="background:var(--section-bg);border-radius:10px;padding:16px;margin-top:20px;text-align:center;"><p style="font-weight:600;color:var(--navy);">Want your own lead-generating website?</p><a href="contact.html" class="btn btn-primary" style="margin-top:10px;">Get Free Quote →</a></div></div></div></div>
+
+<script src="js/components.js"></script>
+<script>
+function filterBlog(cat, btn) {
+  if(btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  document.querySelectorAll('[data-blog]').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.blog === cat) ? '' : 'none';
+  });
+}
+function openArticle(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+function closeArticle(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
+document.querySelectorAll('.article-modal').forEach(m => m.addEventListener('click', function(e){ if(e.target===this) closeArticle(this.id); }));
+</script>
+</body>
+</html>

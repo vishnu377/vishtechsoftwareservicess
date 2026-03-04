@@ -1,147 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Vishtech Software Services</title>
-    
-    <!-- Main Stylesheet (jo pehle banayi thi) -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap-5.3.3-dist/">
-    
-    <!-- Page-Specific Stylesheet (yeh neeche CSS code wali file hai) -->
-    <link rel="stylesheet" href="css/services.css">
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vishtech Software Services — web development, mobile apps, SEO, Google Ads and digital marketing services in Jaipur, Rajasthan.">
+<title>Our Services | Vishtech Software Services – Jaipur</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.service-full { display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:60px 0;border-bottom:1px solid var(--border); }
+.service-full:last-child { border-bottom:none; }
+.service-full.reverse .sf-visual { order:-1; }
+.sf-visual { background:var(--section-bg);border-radius:var(--radius-lg);padding:40px;text-align:center;font-size:5rem;border:1px solid var(--border); }
+.sf-visual .tech-tags { display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px; }
+.sf-content .section-label { margin-bottom:10px; }
+.sf-content h2 { font-size:clamp(1.5rem,2.5vw,2.1rem);color:var(--navy);margin-bottom:14px; }
+.sf-content p { color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:20px; }
+.sf-features { display:flex;flex-direction:column;gap:10px;margin-bottom:24px; }
+.sf-feat { display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--text); }
+.sf-feat i { color:#22c55e;font-size:.8rem;width:16px; }
+@media(max-width:768px){.service-full{grid-template-columns:1fr}.service-full.reverse .sf-visual{order:0}}
+</style>
 </head>
 <body>
+<div class="page-hero">
+  <div class="container">
+    <div class="section-label"><i class="fas fa-cogs"></i> What We Offer</div>
+    <h1>Our <span style="color:var(--cyan-light)">Services</span></h1>
+    <p>End-to-end digital solutions — from concept to launch to growth. Everything your business needs online.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Services</span></div>
+  </div>
+</div>
 
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="Vishtech Logo"></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html" class="active">Services</a></li> <!-- Active class yahan hai -->
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="contact.html" class="btn btn-primary">Get in Touch</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger">☰</div>
+<section class="section">
+  <div class="container">
+
+    <div class="service-full reveal">
+      <div class="sf-visual">
+        🌐
+        <div class="tech-tags">
+          <span class="tag">WordPress</span><span class="tag">React</span><span class="tag">HTML/CSS</span><span class="tag">PHP</span>
         </div>
-    </header>
-
-    <main>
-        <!-- Page Header Section -->
-        <div class="page-header">
-            <div class="container">
-                <h1>Our Professional Services</h1>
-                <p>We offer a comprehensive suite of IT services tailored to meet your business needs.</p>
-            </div>
+      </div>
+      <div class="sf-content">
+        <div class="section-label"><i class="fas fa-globe"></i> Service 01</div>
+        <h2>Website Development</h2>
+        <p>We build professional, fast, mobile-first websites that make a powerful first impression and convert visitors into paying customers. Every website is SEO-ready from day one.</p>
+        <div class="sf-features">
+          <div class="sf-feat"><i class="fas fa-check"></i> Custom design — no templates</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Mobile-first, responsive layout</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> SEO-optimized structure & speed</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Lead capture forms + WhatsApp integration</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Portfolio, blog, testimonials sections</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Delivered in 7–21 days</div>
         </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-rocket"></i> Get Website Quote</a>
+      </div>
+    </div>
 
-        <!-- Services Grid Section -->
-        <section id="our-services">
-            <div class="container">
-                <div class="services-grid">
-                    
-                    <!-- Service Card 1: Web Development -->
-                    <div class="service-card">
-                        <img src="images/icon-web-dev.png" alt="Web Development Icon">
-                        <h3>Web Development</h3>
-                        <p>We build robust, scalable, and secure web applications using the latest technologies to help your business thrive online.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-
-                    <!-- Service Card 2: Mobile App Development -->
-                    <div class="service-card">
-                        <img src="images/icon-app-dev.png" alt="Mobile App Development Icon">
-                        <h3>Mobile App Development</h3>
-                        <p>From iOS to Android, we create intuitive and high-performance mobile apps that offer a seamless user experience.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-                    
-                    <!-- Service Card 3: SEO Services -->
-                    <div class="service-card">
-                        <img src="images/icon-seo.png" alt="SEO Services Icon">
-                        <h3>SEO Services</h3>
-                        <p>Increase your online visibility and rank higher on search engines with our data-driven SEO strategies.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-
-                    <!-- Service Card 4: Digital Marketing -->
-                    <div class="service-card">
-                        <img src="images/icon-digital-marketing.png" alt="Digital Marketing Icon">
-                        <h3>Digital Marketing</h3>
-                        <p>We help you connect with your audience through effective digital marketing campaigns, from social media to PPC.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-
-                    <!-- Service Card 5: UI/UX Design -->
-                    <div class="service-card">
-                        <img src="images/icon-ui-ux.png" alt="UI/UX Design Icon">
-                        <h3>UI/UX Design</h3>
-                        <p>Our design team creates beautiful and user-friendly interfaces that enhance user satisfaction and engagement.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-
-                    <!-- Service Card 6: Cloud Solutions -->
-                    <div class="service-card">
-                        <img src="images/icon-cloud.png" alt="Cloud Solutions Icon">
-                        <h3>Cloud Solutions</h3>
-                        <p>Leverage the power of the cloud with our expert services, including migration, management, and security.</p>
-                        <a href="#" class="learn-more">Learn More →</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Let's Build Something Amazing Together</h2>
-                <p>Have a project in mind? We'd love to hear about it. Contact us today for a free consultation.</p>
-                <a href="contact.html" class="btn btn-secondary">Get a Free Quote</a>
-            </div>
-        </section>
-
-    </main>
-    
-    <!-- Footer (Same as other pages) -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-col">
-                <h4>Vishtech Services</h4>
-                <p>Jaipur, Khatipura, 303021<br>
-                <strong>Phone:</strong> +91 9876543210<br>
-                <strong>Email:</strong> info@vishtech.com</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Mobile App Development</a></li>
-                    <li><a href="#">SEO Services</a></li>
-                </ul>
-            </div>
+    <div class="service-full reverse reveal">
+      <div class="sf-visual">
+        📱
+        <div class="tech-tags">
+          <span class="tag">React Native</span><span class="tag">Flutter</span><span class="tag">Firebase</span>
         </div>
-        <div class="footer-bottom">
-            © Copyright <strong>Vishtech Software Services</strong>. All Rights Reserved
+      </div>
+      <div class="sf-content">
+        <div class="section-label"><i class="fas fa-mobile-alt"></i> Service 02</div>
+        <h2>Mobile App Development</h2>
+        <p>From MVP to full enterprise apps — we build Android & iOS mobile applications that your customers will love to use. Cross-platform development means one codebase, two platforms, lower cost.</p>
+        <div class="sf-features">
+          <div class="sf-feat"><i class="fas fa-check"></i> Android + iOS (single codebase)</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Admin dashboard included</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Payment gateway integration</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Push notifications</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Play Store + App Store submission</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> 6 months post-launch support</div>
         </div>
-    </footer>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-rocket"></i> Get App Quote</a>
+      </div>
+    </div>
 
-    <script src="js/script.js"></script>
+    <div class="service-full reveal">
+      <div class="sf-visual">
+        📈
+        <div class="tech-tags">
+          <span class="tag">Google SEO</span><span class="tag">Local SEO</span><span class="tag">Content</span>
+        </div>
+      </div>
+      <div class="sf-content">
+        <div class="section-label"><i class="fas fa-search"></i> Service 03</div>
+        <h2>SEO Services</h2>
+        <p>Rank on Page 1 of Google for the keywords your customers are searching. We use proven white-hat SEO techniques with transparent monthly reporting. No fake promises — only real results.</p>
+        <div class="sf-features">
+          <div class="sf-feat"><i class="fas fa-check"></i> Technical SEO audit</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Keyword research & strategy</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> On-page optimization</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Quality backlink building</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Google Business Profile management</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Monthly detailed report + call</div>
+        </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-search"></i> Get SEO Started</a>
+      </div>
+    </div>
+
+    <div class="service-full reverse reveal">
+      <div class="sf-visual">
+        🎯
+        <div class="tech-tags">
+          <span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">PPC</span>
+        </div>
+      </div>
+      <div class="sf-content">
+        <div class="section-label"><i class="fas fa-ad"></i> Service 04</div>
+        <h2>Google & Meta Ads</h2>
+        <p>Get qualified leads from Google Search, Display, and Meta (Facebook/Instagram) ads. We manage your campaigns end-to-end — from strategy to creative to weekly optimization.</p>
+        <div class="sf-features">
+          <div class="sf-feat"><i class="fas fa-check"></i> Campaign strategy & setup</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Keyword research & audience targeting</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Ad copywriting & creative</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Landing page optimization</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Weekly bid & budget optimization</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Monthly ROI report</div>
+        </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-ad"></i> Start Ads Campaign</a>
+      </div>
+    </div>
+
+    <div class="service-full reveal">
+      <div class="sf-visual">
+        🛒
+        <div class="tech-tags">
+          <span class="tag">WooCommerce</span><span class="tag">Shopify</span><span class="tag">Razorpay</span>
+        </div>
+      </div>
+      <div class="sf-content">
+        <div class="section-label"><i class="fas fa-shopping-cart"></i> Service 05</div>
+        <h2>E-Commerce Solutions</h2>
+        <p>Launch your online store with all the features you need to sell, manage, and grow. From product listings to payment gateways to delivery integrations — we handle it all.</p>
+        <div class="sf-features">
+          <div class="sf-feat"><i class="fas fa-check"></i> WooCommerce, Shopify, or custom</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Razorpay / PayU / CCAvenue integration</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Product inventory management</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> WhatsApp order notifications</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Coupon & discount system</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> SEO-optimized product pages</div>
+        </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-store"></i> Start Store Now</a>
+      </div>
+    </div>
+
+    <div class="service-full reverse reveal">
+      <div class="sf-visual">
+        💻
+        <div class="tech-tags">
+          <span class="tag">Laravel</span><span class="tag">Python</span><span class="tag">MySQL</span>
+        </div>
+      </div>
+      <div class="sf-content">
+        <div class="section-label"><i class="fas fa-laptop-code"></i> Service 06</div>
+        <h2>Custom Software & ERP</h2>
+        <p>Need a CRM, billing system, inventory management, or a full ERP? We build tailor-made software that automates your business operations and saves hours of manual work every day.</p>
+        <div class="sf-features">
+          <div class="sf-feat"><i class="fas fa-check"></i> CRM, ERP, billing & POS systems</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Multi-user role management</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Reports & analytics dashboard</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Third-party API integration</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> Cloud-hosted & scalable</div>
+          <div class="sf-feat"><i class="fas fa-check"></i> NDA signed before discussion</div>
+        </div>
+        <a href="contact.html" class="btn btn-primary"><i class="fas fa-cog"></i> Discuss Your Project</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container" style="text-align:center;">
+    <div class="section-label"><i class="fas fa-headset"></i> Free Consultation</div>
+    <h2 class="section-title">Ready to <span>Get Started?</span></h2>
+    <p class="section-subtitle" style="margin:0 auto 28px;">Tell us about your project and we'll recommend the best solution. Free 30-minute consultation with no obligation.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Get Free Quote</a>
+      <a href="portfolio.html" class="btn btn-outline btn-lg"><i class="fas fa-eye"></i> See Our Work</a>
+    </div>
+  </div>
+</section>
+
+<script src="js/components.js"></script>
 </body>
 </html>
