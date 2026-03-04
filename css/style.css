@@ -221,6 +221,37 @@ header{
     width: 100%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .vs-hero-section{
     background: url('/images/home-images/hero-image.png');
     background-position: center;
@@ -1194,3 +1225,133 @@ section {
         display: block;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Dropdown Mega Menu Styles --- */
+
+/* Dropdown menu ko full-width banane ke liye */
+.dropdown-menu.mega-menu {
+    width: 80vw; /* Aap isko 80% se 90% tak rakh sakte hain */
+    max-width: 1140px; /* Maximum width set karein */
+    border: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid #EB5B00; /* Orange border jaisa image mein hai */
+    margin-top: 10px !important; /* Thoda sa gap header se */
+    padding: 20px 0;
+    
+    /* Center aane ke liye */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Dropdown ke andar jo headings hain (Website Development, etc.) */
+.mega-menu .dropdown-header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #143D60; /* Aapka primary color */
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+/* Dropdown ke andar ke links */
+.mega-menu .dropdown-item {
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+/* Link par mouse le jaane par (hover) effect */
+.mega-menu .dropdown-item:hover {
+    background-color: #f1f3f5; /* Aapka light background color */
+    color: #EB5B00; /* Aapka accent orange color */
+    transform: translateX(5px); /* Thoda sa aage move hoga */
+}
+
+/* Agar aap icons add karna chahte hain */
+.mega-menu .dropdown-item::before {
+  font-family: 'Font Awesome 5 Free'; /* Example: Font Awesome icon library */
+  content: '\f105'; /* Example icon code */
+  font-weight: 900;
+  margin-right: 10px;
+  color: #A0C878; /* Aapka green accent color */
+}
+
+/* Small screens par dropdown ko normal banane ke liye */
+@media (max-width: 992px) {
+  .dropdown-menu.mega-menu {
+    width: 100%;
+    transform: none;
+    left: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
