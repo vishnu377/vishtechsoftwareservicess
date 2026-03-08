@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="theme-color" content="#080b10">
+<title>Sachin Sharma — Vishtech Software Services</title>
+<link rel="apple-touch-icon" href="https://vishtechsoftware.com/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080b10;--bg2:#0d1117;--panel:#131920;--text:#e8edf5;--muted:#6b7a90;--blue:#3d8ef8;--cyan:#00d4ff;--green:#22d68a;--grad:linear-gradient(135deg,#3d8ef8,#00d4ff)}
+body{font-family:'Outfit',sans-serif;background:var(--bg2);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center}
+.card{width:100%;max-width:430px;min-height:100vh;background:var(--bg2);display:flex;flex-direction:column;position:relative}
+/* HERO */
+.hero{background:var(--bg);padding:1.8rem 1.4rem 1.4rem;position:relative;overflow:hidden}
+.hero-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3d8ef8,#00d4ff,#f0b429)}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(61,142,248,0.13) 0%,transparent 50%),radial-gradient(circle at 15% 80%,rgba(0,212,255,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px);background-size:18px 18px;mask-image:radial-gradient(ellipse at 75% 25%,black 0%,transparent 65%);pointer-events:none}
+.av{width:64px;height:64px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:white;margin-bottom:1rem;border:3px solid rgba(255,255,255,0.1);position:relative;z-index:1}
+.hname{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:3px;color:white;position:relative;z-index:1}
+.hname em{color:var(--cyan);font-style:normal}
+.hrole{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-top:4px;position:relative;z-index:1}
+.hco{font-size:0.78rem;color:var(--muted);margin-top:6px;position:relative;z-index:1}
+.badges{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.8rem;position:relative;z-index:1}
+.badge{background:rgba(61,142,248,0.1);border:1px solid rgba(61,142,248,0.2);color:var(--cyan);border-radius:5px;padding:0.2rem 0.55rem;font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.5px}
+/* ACTIONS */
+.actions{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(255,255,255,0.04)}
+.act{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem 0.4rem;gap:5px;text-decoration:none;border-right:1px solid rgba(255,255,255,0.04);transition:background 0.18s;cursor:pointer}
+.act:last-child{border-right:none}
+.act:hover{background:rgba(255,255,255,0.04)}
+.aicon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.a1{background:rgba(34,214,138,0.13)}.a2{background:rgba(37,211,102,0.13)}.a3{background:rgba(61,142,248,0.13)}.a4{background:linear-gradient(135deg,rgba(228,64,95,0.15),rgba(255,130,0,0.1))}
+.albl{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--muted);letter-spacing:0.8px;text-transform:uppercase}
+/* SERVICES */
+.sec{padding:1rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.04)}
+.stitle{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:0.7rem}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.45rem}
+.schip{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:9px;padding:0.7rem 0.4rem;text-align:center;cursor:pointer;transition:all 0.18s}
+.schip:hover,.schip.sel{background:rgba(61,142,248,0.1);border-color:rgba(61,142,248,0.3);transform:translateY(-2px)}
+.si{font-size:1.2rem;display:block;margin-bottom:3px}
+.sn{font-size:0.5rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:0.5px;line-height:1.2}
+.sp{font-family:'DM Mono',monospace;font-size:0.46rem;color:var(--blue);margin-top:2px}
+/* FORM */
+.form-sec{padding:1rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.04)}
+.fh{font-size:1rem;font-weight:700;color:white;margin-bottom:2px}
+.fh span{color:var(--cyan)}
+.fsub{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);margin-bottom:0.8rem}
+.inp{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:0.7rem 1rem;color:var(--text);font-family:'Outfit',sans-serif;font-size:0.88rem;outline:none;margin-bottom:0.5rem;transition:border-color 0.2s,background 0.2s;-webkit-appearance:none}
+.inp:focus{border-color:var(--blue);background:rgba(61,142,248,0.05)}
+.inp::placeholder{color:var(--muted)}
+.irow{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+.sbtn{width:100%;background:linear-gradient(135deg,#3d8ef8,#00d4ff);border:none;border-radius:10px;padding:0.85rem;color:white;font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;letter-spacing:0.5px;transition:all 0.2s;margin-top:0.2rem;-webkit-tap-highlight-color:transparent}
+.sbtn:hover{opacity:0.9;transform:translateY(-1px)}
+.sbtn:active{transform:scale(0.98)}
+.sbox{display:none;background:rgba(34,214,138,0.08);border:1px solid rgba(34,214,138,0.2);border-radius:10px;padding:0.8rem;text-align:center;margin-top:0.5rem}
+.sbox p{font-size:0.82rem;color:var(--green);font-weight:700}
+.sbox span{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);display:block;margin-top:3px}
+/* SOCIAL */
+.soc{display:flex;align-items:center;justify-content:center;gap:0.65rem;padding:0.9rem 1.2rem;border-bottom:1px solid rgba(255,255,255,0.04)}
+.soc a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;transition:all 0.18s;-webkit-tap-highlight-color:transparent}
+.soc a:hover{background:rgba(255,255,255,0.1);transform:translateY(-3px)}
+.foot{padding:0.9rem 1.2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.52rem;color:var(--muted)}
+.foot a{color:var(--blue);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hero">
+    <div class="hero-bar"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-dots"></div>
+    <div class="av">SS</div>
+    <div class="hname">Sachin <em>Sharma</em></div>
+    <div class="hrole">Founder &amp; Tech Lead</div>
+    <div class="hco">Vishtech Software Services · Khatipura, Jaipur</div>
+    <div class="badges">
+      <span class="badge">50+ Projects</span>
+      <span class="badge">5.0 ★ Google</span>
+      <span class="badge">7-Day Delivery</span>
+      <span class="badge">Since 2021</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="act" href="tel:+917732997349"><div class="aicon a1">📞</div><span class="albl">Call</span></a>
+    <a class="act" href="https://wa.me/917732997349?text=Hi%20Sachin%20ji!%20Aapka%20card%20mila%2C%20ek%20project%20discuss%20karna%20tha." target="_blank"><div class="aicon a2">💬</div><span class="albl">WhatsApp</span></a>
+    <a class="act" href="https://vishtechsoftware.com" target="_blank"><div class="aicon a3">🌐</div><span class="albl">Website</span></a>
+    <a class="act" href="https://instagram.com/vishtechsoftwareservices" target="_blank"><div class="aicon a4">📸</div><span class="albl">Instagram</span></a>
+  </div>
+
+  <div class="sec">
+    <div class="stitle">// Our Services — Tap to Select</div>
+    <div class="sgrid">
+      <div class="schip" onclick="pick(this,'Website Development')"><span class="si">💻</span><span class="sn">Website Dev</span><span class="sp">₹8,000+</span></div>
+      <div class="schip" onclick="pick(this,'Mobile App Development')"><span class="si">📱</span><span class="sn">Mobile App</span><span class="sp">₹25,000+</span></div>
+      <div class="schip" onclick="pick(this,'SEO Services')"><span class="si">🔍</span><span class="sn">SEO</span><span class="sp">₹5K/mo</span></div>
+      <div class="schip" onclick="pick(this,'Google & Meta Ads')"><span class="si">📣</span><span class="sn">Google Ads</span><span class="sp">₹7K/mo</span></div>
+      <div class="schip" onclick="pick(this,'E-Commerce Store')"><span class="si">🛒</span><span class="sn">E-Commerce</span><span class="sp">₹15K+</span></div>
+      <div class="schip" onclick="pick(this,'Custom ERP / CRM')"><span class="si">⚙️</span><span class="sn">ERP / CRM</span><span class="sp">Custom</span></div>
+    </div>
+  </div>
+
+  <div class="form-sec">
+    <div class="fh">Get a <span>Free Quote</span> 🚀</div>
+    <div class="fsub">// 24-hour response guaranteed!</div>
+    <div class="irow">
+      <input class="inp" id="fn" type="text" placeholder="Your Name" autocomplete="name">
+      <input class="inp" id="fp" type="tel" placeholder="Mobile Number" autocomplete="tel">
+    </div>
+    <input class="inp" id="fs" type="text" placeholder="Service needed (tap above to select)">
+    <input class="inp" id="fm" type="text" placeholder="Brief requirement (optional)">
+    <button class="sbtn" onclick="sub()">Send Query → Free Consultation</button>
+    <div class="sbox" id="sb">
+      <p>✅ Query Received!</p>
+      <span>Sachin ji will contact you within 2 hours</span>
+    </div>
+  </div>
+
+  <div class="soc">
+    <a href="https://wa.me/917732997349" target="_blank">💬</a>
+    <a href="https://instagram.com/vishtechsoftwareservices" target="_blank">📸</a>
+    <a href="https://vishtechsoftware.com" target="_blank">🌐</a>
+    <a href="https://linkedin.com/company/vishtechsoftware" target="_blank">💼</a>
+    <a href="mailto:info@vishtechsoftware.com">✉️</a>
+  </div>
+  <div class="foot">© 2025 <a href="https://vishtechsoftware.com">Vishtech Software Services</a> · Jaipur, Rajasthan</div>
+</div>
+
+<script>
+function pick(el,s){document.querySelectorAll('.schip').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');document.getElementById('fs').value=s;}
+function sub(){
+  const n=document.getElementById('fn').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  const s=document.getElementById('fs').value.trim();
+  const m=document.getElementById('fm').value.trim();
+  if(!n||!p){alert('Naam aur mobile zaroor bharein!');return;}
+  const t=encodeURIComponent('🔔 *New Lead — Vishtech Card*\n\n👤 Name: '+n+'\n📱 Phone: '+p+'\n🎯 Service: '+(s||'General')+'\n💬 Note: '+(m||'—')+'\n\n_Via Digital Visiting Card_');
+  window.open('https://wa.me/917732997349?text='+t,'_blank');
+  document.getElementById('sb').style.display='block';
+  ['fn','fp','fs','fm'].forEach(id=>document.getElementById(id).value='');
+  document.querySelectorAll('.schip').forEach(c=>c.classList.remove('sel'));
+  setTimeout(()=>document.getElementById('sb').style.display='none',4000);
+}
+</script>
+</body>
+</html>

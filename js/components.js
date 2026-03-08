@@ -31,6 +31,7 @@
       <div class="nav-right">
         <div class="nav-phone"><i class="fas fa-phone"></i> +91 77329 97349</div>
         <a href="contact.html" class="btn btn-primary btn-sm">Free Quote →</a>
+        <a href="vishtech-digital-card.html" class="btn btn-primary btn-sm">Instent conect →</a>
       </div>
       <div class="hamburger" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
