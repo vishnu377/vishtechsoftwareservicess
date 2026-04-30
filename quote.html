@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Free Quote — Vishtech Software</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark:   #085041;
+    --green-main:   #0F6E56;
+    --green-mid:    #1D9E75;
+    --green-light:  #5DCAA5;
+    --green-bg:     #E1F5EE;
+    --green-soft:   #F0FAF6;
+    --text-primary: #1a1a1a;
+    --text-muted:   #6b7280;
+    --border:       rgba(0,0,0,0.10);
+    --white:        #ffffff;
+    --bg:           #f5f7f6;
+    --radius:       12px;
+    --radius-sm:    8px;
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-primary);
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 40px rgba(15,110,86,0.10);
+    width: 100%;
+    max-width: 520px;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .card-header {
+    background: var(--green-main);
+    padding: 1.6rem 1.8rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .card-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .card-header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+  }
+
+  /* ── Progress ── */
+  .progress-wrap {
+    padding: 1.2rem 1.8rem 0;
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--green-mid);
+    border-radius: 4px;
+    transition: width 0.35s ease;
+  }
+
+  /* ── Body ── */
+  .card-body { padding: 1.4rem 1.8rem 1.8rem; }
+
+  .step { display: none; }
+  .step.active { display: block; }
+
+  .q-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .q-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* Option grid */
+  .opt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1.4rem;
+  }
+  .opt-grid.single { grid-template-columns: 1fr; }
+  .opt-btn {
+    background: var(--bg);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.35;
+    transition: all 0.15s;
+  }
+  .opt-btn:hover {
+    border-color: var(--green-light);
+    background: var(--green-soft);
+  }
+  .opt-btn.selected {
+    border-color: var(--green-mid);
+    background: var(--green-bg);
+  }
+  .opt-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+  .opt-name { font-weight: 500; display: block; }
+  .opt-sub { font-size: 11.5px; color: var(--text-muted); display: block; margin-top: 2px; }
+  .opt-btn.selected .opt-sub { color: var(--green-main); }
+
+  /* Pain tags */
+  .tags-hint { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+  .pain-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.4rem; }
+  .pain-tag {
+    background: var(--bg);
+    border: 1.5px solid transparent;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pain-tag:hover { border-color: var(--green-light); background: var(--green-soft); }
+  .pain-tag.selected { border-color: var(--green-mid); background: var(--green-bg); color: var(--green-dark); font-weight: 500; }
+
+  /* Input fields */
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 5px; }
+  .field input, .field select {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .field input:focus, .field select:focus { border-color: var(--green-mid); }
+
+  /* Summary */
+  .summary-box {
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.2rem;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+  }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 12px;
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .s-key { color: var(--text-muted); flex-shrink: 0; }
+  .s-val { color: var(--text-primary); font-weight: 500; text-align: right; }
+
+  .pain-note {
+    background: var(--green-bg);
+    border: 1px solid var(--green-light);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--green-dark);
+    line-height: 1.55;
+    margin-bottom: 1.4rem;
+  }
+  .pain-note strong { display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--green-main); }
+
+  /* Buttons */
+  .next-btn {
+    width: 100%;
+    background: var(--green-main);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .next-btn:hover { background: var(--green-dark); }
+  .next-btn:active { transform: scale(0.98); }
+  .next-btn:disabled {
+    background: #e5e7eb;
+    color: #aaa;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .wa-btn {
+    width: 100%;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .wa-btn:hover { background: #1ebe5d; }
+
+  /* Success */
+  .success-box { text-align: center; padding: 1.5rem 0.5rem 0.5rem; }
+  .check-circle {
+    width: 64px; height: 64px;
+    background: var(--green-bg);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 28px;
+  }
+  .success-box h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+  .success-box p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.4rem; }
+  .success-box .eta {
+    display: inline-block;
+    background: var(--green-bg);
+    color: var(--green-dark);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 1.4rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    body { padding: 0; align-items: flex-start; background: var(--white); }
+    .card { border-radius: 0; box-shadow: none; min-height: 100vh; }
+    .opt-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-header">
+    <div class="badge">FREE CONSULTATION • 2 MIN</div>
+    <h1>Tell us about your project</h1>
+    <p>We'll send you a custom quote within 24 hours — no commitment needed</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span id="step-label">Step 1 of 5</span>
+      <span id="step-pct">20%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:20%"></div>
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <!-- STEP 1: What do you need -->
+    <div class="step active" id="step-1">
+      <div class="q-label">Your requirement</div>
+      <div class="q-title">What do you need help with?</div>
+      <div class="opt-grid">
+        <button class="opt-btn" onclick="selectOpt(this,'need','Website')">
+          <span class="opt-icon">🌐</span>
+          <span><span class="opt-name">Website</span><span class="opt-sub">Business, portfolio, landing page</span></span>
+        </button>
+        <button class="opt-btn" onclick="selectOpt(this,'need','Mobile App')">
+          <span class="opt-icon">📱</span>
+          <span><span class="opt-name">Mobile App</span><span class="opt-sub">Android, iOS, or both</span></span>
+        </button>
+        <button class="opt-btn" onclick="selectOpt(this,'need','E-Commerce Store')">
+          <span class="opt-icon">🛒</span>
+          <span><span class="opt-name">E-Commerce Store</span><span class="opt-sub">Online shop, catalog</span></span>
+        </button>
+        <button class="opt-btn" onclick="selectOpt(this,'need','Digital Marketing')">
+          <span class="opt-icon">📣</span>
+          <span><span class="opt-name">Digital Marketing</span><span class="opt-sub">SEO, Google/Meta Ads, Social</span></span>
+        </button>
+        <button class="opt-btn" onclick="selectOpt(this,'need','Custom Software / App')">
+          <span class="opt-icon">⚙️</span>
+          <span><span class="opt-name">Custom Software</span><span class="opt-sub">CRM, ERP, billing system</span></span>
+        </button>
+        <button class="opt-btn" onclick="selectOpt(this,'need','Not Sure Yet')">
+          <span class="opt-icon">💬</span>
+          <span><span class="opt-name">Not Sure Yet</span><span class="opt-sub">Let's talk and figure out</span></span>
+        </button>
+      </div>
+      <button class="next-btn" id="next1" onclick="goStep(2)" disabled>Continue →</button>
+    </div>
+
+    <!-- STEP 2: Problem / pain points -->
+    <div class="step" id="step-2">
+      <div class="q-label">Your current challenge</div>
+      <div class="q-title">What is the biggest problem your business faces right now?</div>
+      <div class="tags-hint">Select all that apply</div>
+      <div class="pain-tags">
+        <button class="pain-tag" onclick="togglePain(this)">Not enough customers</button>
+        <button class="pain-tag" onclick="togglePain(this)">No website yet</button>
+        <button class="pain-tag" onclick="togglePain(this)">Losing to competitors</button>
+        <button class="pain-tag" onclick="togglePain(this)">No mobile presence</button>
+        <button class="pain-tag" onclick="togglePain(this)">Hard to get repeat customers</button>
+        <button class="pain-tag" onclick="togglePain(this)">Social media not working</button>
+        <button class="pain-tag" onclick="togglePain(this)">Everything is manual / slow</button>
+        <button class="pain-tag" onclick="togglePain(this)">Old website needs redesign</button>
+        <button class="pain-tag" onclick="togglePain(this)">Website not generating sales</button>
+        <button class="pain-tag" onclick="togglePain(this)">Low ranking on Google</button>
+        <button class="pain-tag" onclick="togglePain(this)">Need more online visibility</button>
+        <button class="pain-tag" onclick="togglePain(this)">Want to grow new customers</button>
+      </div>
+      <button class="next-btn" id="next2" onclick="goStep(3)" disabled>Continue →</button>
+    </div>
+
+    <!-- STEP 3: Business details -->
+    <div class="step" id="step-3">
+      <div class="q-label">About your business</div>
+      <div class="q-title">Tell us a bit about your business</div>
+      <div class="field">
+        <label>Business type</label>
+        <select id="biz-type" onchange="checkStep3()">
+          <option value="">— Select category —</option>
+          <option>Retail / Shop</option>
+          <option>Restaurant / Food</option>
+          <option>Coaching / Education</option>
+          <option>Real Estate</option>
+          <option>Healthcare / Clinic</option>
+          <option>Manufacturer / Factory</option>
+          <option>Service Business</option>
+          <option>Travel / Tourism</option>
+          <option>Startup / New Idea</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Approximate budget</label>
+        <select id="budget" onchange="checkStep3()">
+          <option value="">— Select budget range —</option>
+          <option>Under ₹10,000</option>
+          <option>₹10,000 – ₹25,000</option>
+          <option>₹25,000 – ₹50,000</option>
+          <option>₹50,000 – ₹1,00,000</option>
+          <option>Above ₹1,00,000</option>
+          <option>Not decided yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>When do you want to start?</label>
+        <select id="timeline" onchange="checkStep3()">
+          <option value="">— Select timeline —</option>
+          <option>ASAP — within a week</option>
+          <option>This month</option>
+          <option>Next 1–3 months</option>
+          <option>Just exploring for now</option>
+        </select>
+      </div>
+      <button class="next-btn" id="next3" onclick="goStep(4)" disabled>Continue →</button>
+    </div>
+
+    <!-- STEP 4: Contact info -->
+    <div class="step" id="step-4">
+      <div class="q-label">Your contact details</div>
+      <div class="q-title">Where should we send your free quote?</div>
+      <div class="field">
+        <label>Your full name</label>
+        <input type="text" id="name" placeholder="e.g. Rahul Sharma" oninput="checkStep4()">
+      </div>
+      <div class="field">
+        <label>WhatsApp number</label>
+        <input type="tel" id="phone" placeholder="+91 98765 43210" oninput="checkStep4()">
+      </div>
+      <div class="field">
+        <label>Your city</label>
+        <input type="text" id="city" placeholder="e.g. Jaipur" oninput="checkStep4()">
+      </div>
+      <div class="field">
+        <label>Business name (optional)</label>
+        <input type="text" id="bizname" placeholder="e.g. Sharma Enterprises">
+      </div>
+      <button class="next-btn" id="next4" onclick="goStep(5)" disabled>Review My Request →</button>
+    </div>
+
+    <!-- STEP 5: Summary & Submit -->
+    <div class="step" id="step-5">
+      <div class="q-label">Review before submitting</div>
+      <div class="q-title">Here's what we'll share with our team</div>
+      <div class="summary-box" id="summary-box"></div>
+      <div class="pain-note" id="pain-note"></div>
+      <button class="next-btn" onclick="submitLead()">✓ Get My Free Quote Now</button>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="step" id="step-success">
+      <div class="success-box">
+        <div class="check-circle">✓</div>
+        <h2>Request Received!</h2>
+        <div class="eta">📞 We'll call/WhatsApp you within 2–4 hours</div>
+        <p>Our team has noted your requirements. Meanwhile, you can also chat with us directly on WhatsApp for a faster response.</p>
+        <button class="wa-btn" onclick="openWA()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp Now
+        </button>
+      </div>
+    </div>
+
+  </div><!-- card-body -->
+</div><!-- card -->
+
+<script>
+var A = { need:'', pains:[], bizType:'', budget:'', timeline:'', name:'', phone:'', city:'', bizname:'' };
+
+var stepMeta = [
+  {pct:20, label:'Step 1 of 5 — What you need'},
+  {pct:40, label:'Step 2 of 5 — Your challenges'},
+  {pct:60, label:'Step 3 of 5 — Business details'},
+  {pct:80, label:'Step 4 of 5 — Your contact'},
+  {pct:100,label:'Step 5 of 5 — Review & submit'}
+];
+
+function setProgress(n) {
+  var m = stepMeta[n-1];
+  document.getElementById('progress-fill').style.width = m.pct + '%';
+  document.getElementById('step-label').textContent = m.label;
+  document.getElementById('step-pct').textContent = m.pct + '%';
+}
+
+function selectOpt(btn, key, val) {
+  btn.closest('.opt-grid').querySelectorAll('.opt-btn').forEach(function(b){ b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  A[key] = val;
+  document.getElementById('next1').disabled = false;
+}
+
+function togglePain(el) {
+  el.classList.toggle('selected');
+  A.pains = Array.from(document.querySelectorAll('.pain-tag.selected')).map(function(t){ return t.textContent; });
+  document.getElementById('next2').disabled = A.pains.length === 0;
+}
+
+function checkStep3() {
+  A.bizType  = document.getElementById('biz-type').value;
+  A.budget   = document.getElementById('budget').value;
+  A.timeline = document.getElementById('timeline').value;
+  document.getElementById('next3').disabled = !(A.bizType && A.budget && A.timeline);
+}
+
+function checkStep4() {
+  A.name  = document.getElementById('name').value.trim();
+  A.phone = document.getElementById('phone').value.trim();
+  A.city  = document.getElementById('city').value.trim();
+  document.getElementById('next4').disabled = !(A.name && A.phone.length >= 8 && A.city);
+}
+
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('step-' + n).classList.add('active');
+  setProgress(n);
+  if (n === 5) buildSummary();
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+
+function buildSummary() {
+  A.bizname = document.getElementById('bizname').value.trim();
+  var rows = [
+    ['Service needed', A.need],
+    ['Business type', A.bizType],
+    ['Budget range', A.budget],
+    ['Start timeline', A.timeline],
+    ['Name', A.name],
+    ['WhatsApp', A.phone],
+    ['City', A.city]
+  ];
+  if (A.bizname) rows.push(['Business name', A.bizname]);
+  document.getElementById('summary-box').innerHTML = rows.map(function(r){
+    return '<div class="summary-row"><span class="s-key">'+r[0]+'</span><span class="s-val">'+r[1]+'</span></div>';
+  }).join('');
+  document.getElementById('pain-note').innerHTML =
+    '<strong>Problems noted by our team</strong>' + A.pains.join('  ·  ');
+}
+
+function submitLead() {
+  // Optional: send to your backend / Google Sheet here
+  document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('step-success').classList.add('active');
+  document.querySelector('.progress-wrap').style.display = 'none';
+}
+
+function openWA() {
+  var msg = 'Hi Vishtech! I just filled your quote form.\n\n' +
+    'Service: ' + A.need + '\n' +
+    'Business: ' + A.bizType + (A.bizname ? ' (' + A.bizname + ')' : '') + '\n' +
+    'Budget: ' + A.budget + '\n' +
+    'Timeline: ' + A.timeline + '\n' +
+    'Problems: ' + A.pains.join(', ') + '\n\n' +
+    'Name: ' + A.name + '\n' +
+    'City: ' + A.city;
+  window.open('https://wa.me/917732997349?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+</body>
+</html>
