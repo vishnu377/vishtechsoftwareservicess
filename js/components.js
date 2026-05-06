@@ -91,7 +91,7 @@
         <div class="footer-col">
           <h4>Contact Us</h4>
           <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+91 77329 97349</span></div>
-          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>vishtechsoftwareservices@gmail.com</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>sales@vishtechsoftware.com</span></div>
           <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Khatipura, Jaipur,<br>Rajasthan 302021</span></div>
           <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span><a href="https://wa.me/917732997349" style="color:rgba(255,255,255,.55)">Chat on WhatsApp</a></span></div>
         </div>
